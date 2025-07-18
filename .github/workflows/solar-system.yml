@@ -76,5 +76,5 @@ jobs:
           with:
             context: .
             push: true
-            tags: 'ghcr.io/$${{ github.repository_owner }}/solar-system:${{ github.sha }}'
-            #added a job and service registry
+            tags: 'ghcr.io/${{ github.repository_owner }}/solar-system:${{ github.sha }}'
+            
