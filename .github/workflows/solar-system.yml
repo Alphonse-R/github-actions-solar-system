@@ -71,7 +71,7 @@ jobs:
             username: ${{ github.repository_owner }}
             password: ${{ secrets.GITHUB_TOKEN }}
 
-        - name: Build and push    #added a job and service registry
+        - name: Build and push    #added a job and service registry 
           uses: docker/build-push-action@v6
           with:
             context: .
