@@ -97,10 +97,14 @@ jobs:
             method: kubeconfig
             kubeconfig: '${{ secrets.KUBECONFIG }}'
         - run: kubectl version --client=true
+        
+        #  write the INGRESS_IP to $GITHUB_ENV
         - run: >
             echo "INGRESS_IP=$(kubectl -n ingress-nginx get services
             ingress-nginx-controller -o
             jsonpath='{.status.loadBalancer.ingress[0].ip}')" >> $GITHUB_ENV
+        
+        #  replace token
         - uses: cschleiden/replace-tokens@v1
           with:
             tokenPrefix: '_{_'
