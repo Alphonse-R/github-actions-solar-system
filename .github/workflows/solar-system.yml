@@ -96,18 +96,7 @@ jobs:
           with:
             method: kubeconfig
             kubeconfig: '${{ secrets.KUBECONFIG }}'
-        # - name: Write kubeconfig to file
-        #   run: echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yaml
-        
-        # - name: Set KUBECONFIG env var
-        #   run: echo "KUBECONFIG=$(pwd)/kubeconfig.yaml" >> $GITHUB_ENV
-        
-        # - name: Debug kubeconfig
-        #   run: cat $KUBECONFIG
-        
-        # - name: Check kubectl version
-        #   run: kubectl version -o yaml
-        - run: kubectl version -o yaml
+        - run: kubectl version --client=true
         # - run: >
         #     echo "INGRESS_IP=$(kubectl -n ingress-nginx get services
         #     ingress-nginx-controller -o
